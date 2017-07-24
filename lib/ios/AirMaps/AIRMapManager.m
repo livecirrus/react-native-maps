@@ -637,10 +637,10 @@ static int kDragCenterContext;
 
     [self _regionChanged:mapView];
 
-    if (mapView.minZoomLevel != nil && zoomLevel < mapView.minZoomLevel) {
+    if (mapView.minZoomLevel != 0 && zoomLevel < mapView.minZoomLevel) {
       [self setCenterCoordinate:[mapView centerCoordinate] zoomLevel:mapView.minZoomLevel animated:TRUE mapView:mapView];
     }
-    else if (mapView.maxZoomLevel != nil && zoomLevel > mapView.maxZoomLevel) {
+    else if (mapView.maxZoomLevel != 0 && zoomLevel > mapView.maxZoomLevel) {
       [self setCenterCoordinate:[mapView centerCoordinate] zoomLevel:mapView.maxZoomLevel animated:TRUE mapView:mapView];
     }
 
@@ -665,7 +665,7 @@ static int kDragCenterContext;
 {
     [mapView finishLoading];
     [mapView cacheViewIfNeeded];
-    
+
     mapView.onMapReady(@{});
 }
 
